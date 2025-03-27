@@ -1,6 +1,6 @@
 # 時系列データベースとは
 
-![Google Trend](/GoogleTrends.png)
+![Google Trend](img/GoogleTrends.png)
 
 Googleトレンドチャートを見ると、データストレージシステムの進歩と近年のビッグデータ革命により、時系列データベースへの関心が再び高まっていることが推測できます。
 

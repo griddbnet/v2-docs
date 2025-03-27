@@ -18,6 +18,18 @@ export default defineConfig({
       { href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', rel: 'stylesheet' }
     ]
   ],
+  ignoreDeadLinks: [
+    // ignore exact url "/playground"
+    '/playground',
+    // ignore all localhost links
+    /^https?:\/\/localhost/,
+    // ignore all links include "/repl/""
+    /\/repl\//,
+    // custom function, ignore all links include "ignore"
+    (url) => {
+      return url.toLowerCase().includes('ignore')
+    }
+  ],
   locales: {
     root: {
       label: 'English',
@@ -100,7 +112,6 @@ export default defineConfig({
             { text: 'SQL Commands Supported', link: '/sqlreference/sql-commands-supported'},
             { text: 'Metatables', link: '/sqlreference/metatables'},
             { text: 'Reserved Words', link: '/sqlreference/reserved-words'},
-            { text: 'SQL Reference', link: '/sqlreference/SQL-Reference'}
           ]
         },
         {
@@ -111,7 +122,6 @@ export default defineConfig({
             { text: 'Type', link: '/tqlreference/type' },
             { text: 'TQL Syntax and Caluclation Functions', link: '/tqlreference/tql-syntax-and-calculation-functions' },
             { text: 'Annex', link: '/tqlreference/annex' },
-            { text: 'TQL Reference', link: '/sqlreference/TQL-Reference'}
           ]
         },
         {

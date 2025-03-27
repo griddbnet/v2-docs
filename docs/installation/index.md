@@ -8,7 +8,7 @@ hero:
   tagline: 
   actions:
     - theme: brand
-      text: Ubuntu
+      text: Ubuntu (Standalone Page)
       link: /installation/ubuntu
     - theme: alt
       text: Rocky Linux

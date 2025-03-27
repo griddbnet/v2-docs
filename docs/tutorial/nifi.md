@@ -34,7 +34,7 @@ If you do not already have GridDB set up, follow the [Getting Started](https://d
 
 ## The Data Set
 
-We're going to use the Historic NYPD Complaint Data made available Open NYC  available [here](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i). The data has nearly 7 million rows across 35 columns totalling TODO GB. We've also made available a 1000 row version for testing that you can download from the GridDB.net GitHub Repository [here](). 
+We're going to use the Historic NYPD Complaint Data made available Open NYC  available [here](https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Data-Historic/qgea-i56i). The data has nearly 7 million rows across 35 columns totalling TODO GB. 
 
 ## Build the Nifi Flow
 

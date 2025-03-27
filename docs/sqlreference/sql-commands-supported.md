@@ -45,7 +45,7 @@ Create a database.
 - Can be executed by an administrator user only.
 - Databases with the same name as "public", "information_schema" cannot be created as these are reserved for internal use in GridDB.
 - Nothing will be changed if a database with the same name already exists.
-- See "GridDB Features Reference" ([GridDB_FeaturesReference](/architecture/introduction/#purpose-of-this-documentation)) for the rules of a database name.
+
 
 ### CREATE TABLE
 
@@ -78,11 +78,9 @@ Create a table.
 
 **Specifications**
 
-- See "GridDB Features Reference ([GridDB_FeaturesReference](GridDB_FeaturesReference.md)) for the rule of a table name and a column name.
 - If "IF NOT EXISTS" is specified, the specified table can be created only if another table with the same name does not exist.
 - The column name and data type name need to be specified in column definition. See [Data types used in data storage](#data_types_used_in_data_storage) for the data types that can be specified.
 - Composite primary key can be set to a table (collection) by setting the primary key after describing the column definition. The composite primary key must be set to the columns which are continuous from the first column and can be set up to 16 columns. It cannot be set together with the PRIMARY KEY as a column constraint, cannot be set to a time series table (time series container).
-- See "GridDB Features Reference"     ([GridDB_FeaturesReference](GridDB_FeaturesReference.md)) for details of time series table (Time series container).
 - Options related to data affinity can be specified in the format "WITH (property key = property value, ...)".
 <a id="label_data_affinity_property"></a>
     
@@ -100,7 +98,6 @@ Create a table.
 |              | Elapsed time unit | expiration_time_unit      | STRING <br>(Any of the followings. DAY / HOUR / MINUTE / SECOND / MILLISECOND )  | Optional (default: DAY). |
 |              | Division count   | expiration_division_count | INTEGER                                    | Optional (default: 8). |
   
-- See "GridDB Features Reference"    ([GridDB_FeaturesReference](GridDB_FeaturesReference.md)) for the details of each item.
 
 **Examples**
 
@@ -118,7 +115,6 @@ Create a table.
 
 Creating a partitioned table
 
-See "GridDB Features Reference" ([GridDB_FeaturesReference](GridDB_FeaturesReference.md)) for details of each partitioning function.
 
 **(1) Creating a hash partitioned table**
 
@@ -140,7 +136,7 @@ See "GridDB Features Reference" ([GridDB_FeaturesReference](GridDB_FeaturesRefer
 
 - Create a hash partitioned table usng the column name of the partitioning key and the value of division count.
  - Specify the value from 1 to 1024 for "division_count".
-- The partitioning key requires the primary key. To set a key other than the primary key, the restriction in the configuration file need to be removed. For details, refer to the cluster definition file settings in GridDB Features Reference ([GridDB_FeaturesReference](GridDB_FeaturesReference.md)).
+- The partitioning key requires the primary key. To set a key other than the primary key, the restriction in the configuration file need to be removed. 
 - The column specified as partitioning key cannot be updated.
 - Options related to data affinity can be specified in the format "WITH (property key = property value, ...)". 
 The options that can be specified are same as [normal table](#label_data_affinity_property).
@@ -179,7 +175,7 @@ The options that can be specified are same as [normal table](#label_expiration_p
 **Specifications**
 
 - Specify the column which type is BYTE, SHORT, INTEGER, LONG or TIMESTAMP for "column_name_of_partitioning_key".
-- The partitioning key requires the primary key. To set a key other than the primary key, the restriction in the configuration file need to be removed. For details, refer to the cluster definition file settings in GridDB Features Reference ([GridDB_FeaturesReference](GridDB_FeaturesReference.md)).
+- The partitioning key requires the primary key. To set a key other than the primary key, the restriction in the configuration file need to be removed. 
 - The column specified as partitioning key cannot be updated.
 - The following values can be specified as the "interval_value".
     
@@ -206,7 +202,6 @@ The options that can be specified are same as those of [regular tables](#label_e
 - The partition expiry release can only be specified for followings:
   - Timeseries table (timeseries container)
   - Table (collection) whose partitioning key is TIMESTAMP type.
-- See "GridDB Features Reference"     ([GridDB_FeaturesReference](GridDB_FeaturesReference.md)) for the details of each item.
 
 **Examples**
 
@@ -265,7 +260,7 @@ The options that can be specified are same as those of [regular tables](#label_e
   - The interval unit cannot be specified for any types other than TIMESTAMP.
 
 - Specify the value from 1 to 1024 for "division_count".
-- The partitioning key requires the primary key. To set a key other than the primary key, the restriction in the configuration file need to be removed. For details, refer to the cluster definition file settings in GridDB Features Reference ([GridDB_FeaturesReference](GridDB_FeaturesReference.md)).
+- The partitioning key requires the primary key. To set a key other than the primary key, the restriction in the configuration file need to be removed.
 - The column specified as partitioning key cannot be updated.
 - Options related to data affinity can be specified in the format "WITH (property key = property value, ...)". 
 The options that can be specified are same as [normal table](#label_data_affinity_property).
@@ -317,7 +312,7 @@ Create an index.
 
 **Specifications**
 
-- See "GridDB Features Reference" ([GridDB_FeaturesReference](GridDB_FeaturesReference.md)) for the rules of an index name.
+
 - For a table, an index with the same name as an existing index in the table cannot be created.
 - If a transaction under execution exists in a table subject to processing, the system will wait for these to be completed before creating the data.
 - An index cannot be created on a column of BLOB type and ARRAY type.
@@ -336,7 +331,7 @@ Create a view.
 
 **Specifications**
 
-- See "GridDB Features Reference"    ([GridDB_FeaturesReference](GridDB_FeaturesReference.md)) for the rules of a view name.
+
 - Whether the result from the SELECT statement is available or not is checked. If the result is not available, a view cannot be created.
 - When FORCE is specified, the result from the SELECT statement is not checked, while a syntactic check is done.
 - The SELECT statement can include other view names. If other view names in the SELECT statement cause circular reference, the view cannot be created even if FORCE is specified.
@@ -354,7 +349,7 @@ Create a general user.
 
 **Specifications**
 
-- See "GridDB Features Reference"    ([GridDB_FeaturesReference](GridDB_FeaturesReference.md)) for the rules of a user name.
+
 - Can be executed by an administrator user only.
 - A user with the same name as an administrator user (admin and system) registered during installation cannot be created.
 - Only ASCII characters can be used in the password string. The password is case-sensitive.

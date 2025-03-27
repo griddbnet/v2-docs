@@ -8,10 +8,10 @@ hero:
   tagline: 
   actions:
     - theme: brand
-      text: Installation
+      text: Install GridDB
       link: /installation/
     - theme: alt
-      text: What Is GridDB?
+      text: Jump to Docs
       link: /about/
     - theme: alt
       text: GridDB Cloud

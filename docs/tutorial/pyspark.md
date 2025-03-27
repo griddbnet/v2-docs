@@ -1,10 +1,7 @@
 # Data Visualization using Apache Zeppelin
 
 In our final tutorial using the CASAS dataset, we demonstrate the
-flexibility of Zeppelin with it's ease of visualization. In case you
-missed the first tutorial on ingesting Casas dataset with Kafka, it is
-available [here]() and the tutorial exmaing the data set with JayDeBeApi
-and Jupyter Notebook is [here]().
+flexibility of Zeppelin with it's ease of visualization.
 
 ## Setup
 
@@ -21,8 +18,7 @@ cd zeppelin-0.9.0-preview2-bin-all/
 bin/zeppelin-daemon.sh start
 ```
 
-With Zeppelin started, head over to <http://localhost:8080/> to get
-started. In order for PySpark to use the GridDB JDBC driver, it must be
+In order for PySpark to use the GridDB JDBC driver, it must be
 added to the CLASSPATH. Todo this, click on the menu in the top right
 corner, then interpreters. From that page, scroll down to "Spark" and
 click "edit". Then scroll down to Dependencies and add an Artifact which
@@ -63,7 +59,7 @@ columns except for `dt` as they are not required for the visualization.
 Finally, we use Zeppelin's visualization function, `z.show()` to plot a
 graph. To plot the graphs properly, we needed to drag and drop the
 `temp` field into the values as shown below:
-![](https://griddb.net/en/wp-content/uploads/2020/09/zep1-1024x675.png)
+![Image](https://griddb.net/en/wp-content/uploads/2020/09/zep1-1024x675.png)
 
 ## Multiple Sensors
 
@@ -105,6 +101,6 @@ sensor containers/tables before merging them and using the Zeppelin
 display function to show them. Now within the Zepplin visualization
 tool, we drag and drop `sensor` to the Group list box and `temp` to the
 Values list box as seen below:
-![](https://griddb.net/en/wp-content/uploads/2020/09/zep2-1024x684.png)
+![zepp](https://griddb.net/en/wp-content/uploads/2020/09/zep2-1024x684.png)
 The Zeppelin notebook can be downloaded
 [here](https://griddb.net/en/download/26926/).

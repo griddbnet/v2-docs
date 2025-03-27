@@ -140,7 +140,7 @@ This section explains how to handle the data of these data types when accessed u
 ## User and database
 
 There are 2 types of GridDB user, an administrator user and a general user, which differ in terms of the functions which can be used. In addition, access can be separated on a user basis by creating a database. 
-See "GridDB Features Reference ([GridDB_FeaturesReference](GridDB_FeaturesReference.md)) for the details of users and a database.
+
 
 ## Naming rules
 
@@ -149,7 +149,7 @@ The naming rules are as follows:
 - A database name, table name, view name, column name, index name and general user name is a string composed of one or more ASCII alphanumeric characters, the underscore "_" , the hyphen "-" , the dot "." , the slash "/" and the equal "=".
 - For table name, the "@" character can also be specified for the node affinity function.
 
-See "GridDB Features Reference" ([GridDB_FeaturesReference](GridDB_FeaturesReference.md)) for the details about the node affinity function, and the rules and the restrictions of naming.
+
 
 [Notice]
 - If the name of a table or a column contains characters other than ASCII alphanumeric characters and underscore, or if the first character of the name is a number in a SQL statement, enclose the name with double quotation marks.
