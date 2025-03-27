@@ -22,7 +22,8 @@ hero:
 ## GridDB (Ubuntu) Quickstart
 
 ```bash
-sudo sh -c 'echo "deb https://www.griddb.net/apt griddb/5.7 multiverse" >  /etc/apt/sources.list.d/griddb.list'
+sudo sh -c 'echo "deb https://www.griddb.net/apt griddb/5.7 multiverse" \ 
+>  /etc/apt/sources.list.d/griddb.list'
 ```
 
 And then import the key: 
@@ -38,11 +39,22 @@ $ sudo apt update
 $ sudo apt install griddb-meta
 ```
 
-## CLI Quickstart
+### Starting GridDB
 
 ```bash
+$ sudo systemctl start gridstore
+```
+
+## CLI Quickstart
+
+```bash{7}
 $ sudo su gsadm
 $ gs_sh
+
+Loading "/var/lib/gridstore/.gsshrc"
+The connection attempt was successful(NoSQL).
+The connection attempt was successful(NewSQL).
+gs[public]>
 ```
 
 
@@ -51,6 +63,6 @@ $ gs_sh
 ```bash
 $ sudo su gsadm
 $ nohup java -jar /usr/griddb-ce-webapi-5.7.0/griddb-webapi-ce-5.7.0.jar &
-$ curl --location 'http://localhost:8081/myCluster/dbs/public/checkConnection' \
---header 'Authorization: Basic YWRtaW46YWRtaW4='
+$ curl --location 'http://localhost:8081/griddb/v2/myCluster/dbs/public/checkConnection' \
+--header 'Authorization: Basic YWRtaW46YWRtaW4=''
 ```
