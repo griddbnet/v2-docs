@@ -4,6 +4,20 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "GridDB",
   description: "Documentation for GridDB.net",
+  head: [
+    [
+      'link',
+      { rel: 'icon', href: '/favicon.ico' }
+    ],
+    [
+      'link',
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
+    ],
+    [
+      'link',
+      { href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', rel: 'stylesheet' }
+    ]
+  ],
   locales: {
     root: {
       label: 'English',
@@ -20,7 +34,7 @@ export default defineConfig({
     
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
+      { text: 'Download', link: 'https://griddb.net/en/downloads' },
     ],
 
     sidebar: {

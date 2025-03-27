@@ -5,22 +5,15 @@ layout: home
 hero:
   name: "GridDB"
   text: "Documentation for GridDB.net"
-  tagline: My great project tagline
+  tagline: 
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Installation
+      link: /installation/
     - theme: alt
-      text: API Examples
-      link: /api-examples
-
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      text: What Is GridDB?
+      link: /about/
+    - theme: alt
+      text: GridDB Cloud
+      link: https://form.ict-toshiba.jp/download_form_griddb_cloud_freeplan_e?utm_source=griddbnet&utm_medium=docspage
 ---
-
-## H2
