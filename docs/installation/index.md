@@ -37,3 +37,20 @@ Then install GridDB:
 $ sudo apt update
 $ sudo apt install griddb-meta
 ```
+
+## CLI Quickstart
+
+```bash
+$ sudo su gsadm
+$ gs_sh
+```
+
+
+## GridDB Web API Quickstart
+
+```bash
+$ sudo su gsadm
+$ nohup java -jar /usr/griddb-ce-webapi-5.7.0/griddb-webapi-ce-5.7.0.jar &
+$ curl --location 'http://localhost:8081/myCluster/dbs/public/checkConnection' \
+--header 'Authorization: Basic YWRtaW46YWRtaW4='
+```
