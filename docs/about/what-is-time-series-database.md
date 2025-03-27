@@ -1,6 +1,6 @@
 # What is a Time Series Database?
 
-![Google Trend](/GoogleTrends.png)
+![Google Trend](img/GoogleTrends.png)
 
  Looking at above the Google Trends Chart, one can surmise that advancements in data storage systems and the big data revolution in recent years have reignited interest in Time Series databases.
 

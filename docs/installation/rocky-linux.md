@@ -1,44 +1,67 @@
-# Installation - Ubuntu
+# Installation - Rocky Linux
 
-We have confirmed the operation on Ubuntu 18.04.
+We have confirmed the operation on Rocky Linux 9.4.
 
-## Install with apt-get
+## Install with yum/dnf
 
-You can install GridDB using apt. 
+You can install GridDB using DNF. 
 
-If you prefer a video: 
-
-<p class="iframe-container">
-<iframe src="https://www.youtube.com/embed/U1WAezk59pY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
-
-First create the Apt Repo File:
-
-    sudo sh -c 'echo "deb https://www.griddb.net/apt griddb/5.7 multiverse" >  /etc/apt/sources.list.d/griddb.list'
-
-And then import the key: 
-
-    wget -qO - https://www.griddb.net/apt/griddb.asc | sudo apt-key add -
+First create the Yum Repo File:
+```bash
+sudo cat > /etc/yum.repos.d/griddb.repo << EOF
+[griddb]
+name=GridDB.net
+baseurl=https://griddb.net/yum/el7/5.7/
+enabled=1
+gpgcheck=1
+gpgkey=https://griddb.net/yum/RPM-GPG-KEY-GridDB.txt
+EOF
+```
 
 Then install GridDB:
-    
-    $ sudo apt update
-    $ sudo apt install griddb-meta
 
-With that command, GridDB, the c-client, the JDBC connector, and the GridDB CLI will be installed onto your machine.
+```bash
+$ sudo dnf update
+$ sudo dnf -y install griddb-meta
+```
+
+#### :warning: Note
+If you would like to use a previous version of GridDB, you can change the baseurl to match that version (for example, version 5.5) 
+
+
+With that command, GridDB, the c-client, the JDBC connector, the GridDB CLI, and the GridDB WebAPI will be installed onto your machine.
+
+## Starting GridDB Server
 
 And now, you can start your GridDB server
 
-    $ sudo systemctl start gridstore
+```bash
+$ sudo systemctl start gridstore
+```
 
 To stop your server: 
 
-    $ sudo systemctl stop gridstore
+```bash
+$ sudo systemctl stop gridstore
+```
+
+### Starting GridDB Shell & GridDB WebAPI
 
 Once your server is running, you can drop into the shell (java is required): 
 
-    $ sudo su gsadm
-    $ gs_sh
+```bash
+$ sudo su gsadm
+$ gs_sh
+```
+
+You can also start up the GridDB Web API: 
+
+```bash
+$ sudo su gsadm
+$ nohup java -jar /usr/griddb-ce-webapi-5.7.0/griddb-webapi-ce-5.7.0.jar &
+
+GridDB Web API is now running on port 8081
+```
 	
 ### User and directory structure after installation
 
@@ -201,14 +224,15 @@ In here you can see your version, cluster name, etc.
 #### :warning: Note
 - When you install this package, a gsadm OS user are created in the OS. Execute the operating command as the gsadm user.   
    Example
-   ```
-   # su - gsadm
-   $ pwd
-   /var/lib/gridstore
-   ```
+
+```bash
+# su - gsadm
+$ pwd
+/var/lib/gridstore
+```
+
 - You do not need to set environment variable GS_HOME and GS_LOG. And the place of operating command is set to environment variable PATH.
 - There is Java client library (gridstore.jar) on /usr/share/java and a sample on /usr/gridb-XXX/docs/sample/programs.
-
 
 When the GridDB package is installed, the following users and directory structure will be created.
 
@@ -234,7 +258,7 @@ The following environment variables are defined for user gsadm (in the .bash_pro
 The following two directories are created: GridDB home directory which contains files such as a node definition file and database files, the installation directory which contains the installed files.
 
 ###### GridDB home directory
-```
+```bash
 /var/lib/gridstore/                      #GridDB home directory
                    conf/                 # Definition file directory
                         gs_cluster.json  #Cluster definition file
@@ -245,7 +269,7 @@ The following two directories are created: GridDB home directory which contains 
 ```
 
 ###### Installation directory
-```
+```bash
 Installation directory
             bin/                        # Operation command, module directory
             conf/                       #Definition file directory
@@ -258,16 +282,16 @@ Installation directory
                 sample/
 ```
 
-## Install with deb
+## Install with RPM
 
 Please download the appropriate package files from the GridDB Github page.
 
 Then, install the package of your target OS.
-	
-	(Ubuntu)
-    $ sudo dpkg -i griddb_-X.X.X-linux.amd64.deb
-    
+```bash	
+$ sudo rpm -ivh griddb_nosql-X.X.X-linux.x86_64.rpm
+```
 	X.X.X means version
+
 
 ## Build/execution method
 
@@ -281,7 +305,7 @@ An example on how to build and execute a program is as shown.
 3. Build
 4. Run
 
-```
+```bash
 $ export CLASSPATH=${CLASSPATH}:/usr/share/java/gridstore.jar:.
 $ mkdir gsSample
 $ vim gsSample/Sample1.java
@@ -297,7 +321,9 @@ If you no longer need GridDB, uninstall the package. Execute the following proce
 
 [Example]
 
-    $ sudo apt remove griddb-meta
+```bash
+$ sudo dnf remove griddb-meta
+```
 
 #### :warning: Note
 - Files under the GridDB home directory such as definition files and data files will not be uninstalled. If you do not need it, delete it manually.

@@ -40,17 +40,17 @@ export default defineConfig({
           text: 'Installation',
           collapsed: true,
           items: [
-            { text: 'Web CLI (No Install)', link: '/gettingstarted/webshell' },
-            { text: 'Ubuntu', link: '/gettingstarted/ubuntu' },
-            { text: 'Rocky Linux', link: '/gettingstarted/rocky-linux' },
-            { text: 'Docker', link: '/gettingstarted/docker' },
-            { text: 'Misc (WSL, ChromeOS)', link: '/gettingstarted/misc' }
+            { text: 'Ubuntu', link: '/installation/ubuntu' },
+            { text: 'Rocky Linux', link: '/installation/rocky-linux' },
+            { text: 'Docker', link: '/installation/docker' },
+            { text: 'Misc (WSL, ChromeOS)', link: '/installation/misc' }
           ]
         },
         {
           text: 'Getting Started',
           collapsed: true,
           items: [
+            { text: 'Web CLI (No Install)', link: '/gettingstarted/webshell' },
             { text: 'Web API', link: 'https://griddb.net/en/blog/griddb-webapi/'},
             { text: 'GridDB CLI', link: 'https://griddb.net/en/blog/griddb-community-edition-v4-6-new-features/'},
             {
@@ -146,17 +146,18 @@ export default defineConfig({
           text: 'Installation',
           collapsed: true,
           items: [
-            { text: 'Web CLI (No Install)', link: '/jp/gettingstarted/webshell' },
-            { text: 'Ubuntu', link: '/jp/gettingstarted/ubuntu' },
-            { text: 'Rocky Linux', link: '/jp/gettingstarted/rocky-linux' },
-            { text: 'Docker', link: '/jp/gettingstarted/docker' },
-            { text: 'Misc (WSL, ChromeOS)', link: '/jp/gettingstarted/misc' }
+            
+            { text: 'Ubuntu', link: '/jp/installation/ubuntu' },
+            { text: 'Rocky Linux', link: '/jp/installation/rocky-linux' },
+            { text: 'Docker', link: '/jp/installation/docker' },
+            { text: 'Misc (WSL, ChromeOS)', link: '/jp/installation/misc' }
           ]
         },
         {
           text: 'はじめに',
           collapsed: true,
           items: [
+            { text: 'Web CLI (No Install)', link: '/jp/gettingstarted/webshell' },
             { text: 'Web API', link: 'https://griddb.net/en/blog/griddb-webapi/'},
             { text: 'GridDB CLI', link: 'https://griddb.net/en/blog/griddb-community-edition-v4-6-new-features/'},
             {
