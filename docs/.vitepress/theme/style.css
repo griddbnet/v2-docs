@@ -1,0 +1,21 @@
+:root {
+    --vp-c-brand-1: #44bae8;
+    --vp-c-brand-2: #cddc39;
+  }
+
+.iframe-container {
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative;
+}
+
+  
+.iframe-container iframe{
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+   

@@ -44,7 +44,7 @@ export default defineConfig({
           text: 'About GridDB',
           collapsed: true,
           items: [
-            {text: 'What is GridDB', link: '/about/what-is-griddb'},
+            {text: 'What is GridDB', link: '/about/'},
             {text: 'What is a Time Series Database', link: '/about/what-is-time-series-database'},
             {text: 'Release Notes', link: '/about/release-notes'},
             {text: 'FAQs', link: '/about/faq'},

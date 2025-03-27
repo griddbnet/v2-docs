@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "Installing GridDB"
-  text: "Documentation for GridDB.net"
+  name: "Installation"
+  text: ""
   tagline: 
   actions:
     - theme: brand
