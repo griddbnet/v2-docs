@@ -470,7 +470,6 @@ GridDBクラスタでは、コンテナデータをクラスタ内のノード�
 -   **エクスポート実行情報ファイル**
     -   エクスポート実行時の情報を保存します。エクスポートしたデータを、そのままGridDBクラスタに復元するために必要です。
 
-　※詳細は『[GridDB 運用ツールリファレンス](../5.md_reference_operation_tool/md_reference_operation_tool.md)』をご参照ください。
 
 【インポート(import)】
 
@@ -852,7 +851,6 @@ quit
 ```
 
 クラスタを構成するノードを示すnode1,node2,node3といったノード変数や、cl1というクラスタ変数、ユーザ設定やデータベース情報は適宜環境に合わせて変更してください。
-gs_shの詳細は『[GridDB 運用ツールリファレンス](../5.md_reference_operation_tool/md_reference_operation_tool.md)』を参照ください。
 
 gs_shのスクリプトファイルを以下のように実行することで、コンテナとパーティションの一覧が採取できます。
 
@@ -1535,7 +1533,6 @@ Readme.txt  rolling_upgrade_sample.sh
 -   (日付時刻) (ホスト名) (スレッド番号) (ログレベル) (カテゴリ) \[(エラー・トレース番号):(エラー・トレース番号名)\](メッセージ) &lt;(base64詳細情報: サポートサービスにて問題点分析用の詳細情報)&gt;
 
     エラー・トレース番号名で発生した事象の概要が判ります。
-    また、エラー・トレース番号を用いて『[GridDB エラーコード](manuals/6.md_error_code/md_error_code.md)』で問題点への対策を検索できます。以下にイベントログの出力例を示します。
 
 ```
 
@@ -1839,8 +1836,6 @@ $ gs_partition -u admin/admin -n 1
 【注意】
 -   メタテーブル"\#table_partitions"のスキーマは、今後のバージョンで変更される可能性があります。
 
-【メモ】
--   メタテーブルの詳細は『[GridDB SQLリファレンス](../14.md_reference_sql/md_reference_sql.md)』を参照ください。
 
 
 ## 運用ツール
@@ -1932,5 +1927,4 @@ gs_shでは、ノード起動やクラスタ開始などのクラスタ操作や
   - コンテナ作成、索引作成、TQL・SQLの実行など
 
 
-gs_shの操作の詳細については、『[GridDB 運用ツールリファレンス](../5.md_reference_operation_tool/md_reference_operation_tool.md)』をご参照ください。
 

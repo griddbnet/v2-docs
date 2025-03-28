@@ -69,7 +69,7 @@ export GS_HOME
 
 The database directory, backup directory and server event log directory can be changed by changing the settings of the node definition file as well.
 
-See [Parameters](parameter/#parameter) for the contents that can be set in the cluster definition file and node definition file.
+See [Parameters](./parameter#parameter) for the contents that can be set in the cluster definition file and node definition file.
 
 
 ## Data access function
@@ -101,7 +101,7 @@ TQL and SQL-92 compliant SQL are supported as database access languages.
 
     -   It is not possible to apply the update lock.
 
-    See "[GridDB TQL Reference](../11.md_reference_tql/md_reference_tql.md)" for details.
+
 
 -   What is SQL?
 
@@ -109,7 +109,6 @@ TQL and SQL-92 compliant SQL are supported as database access languages.
 
     SQL is also available for the containers created by operations through the NoSQL interface.
 
-    See "[GridDB SQL Reference](../14.md_reference_sql/md_reference_sql.md)"  for details.
 
 <a id="batch_functions"></a>
 ### Batch-processing function to multiple containers
@@ -289,7 +288,7 @@ In order to improve the operation speed of applications connected to multiple no
 
 GridDB supports hash partitioning, interval partitioning and interval-hash partitioning as table partitioning methods.
 
-Creating and Deleting tables can be performed only through the NewSQL interface. Data registration, update and search can be performed through the NewSQL/NoSQL interface. (There are some restrictions. See [TQL and SQL](/tqlreference/introduction.md) for the details.)
+Creating and Deleting tables can be performed only through the NewSQL interface. Data registration, update and search can be performed through the NewSQL/NoSQL interface. (There are some restrictions. See [TQL Reference](../tqlreference/) for the details.)
 
 -   Data registration
 
@@ -411,7 +410,7 @@ The data in the same range are stored in the same data partition, so for the con
     Each data partition can be deleted. The data partition that has been deleted cannot be recreated.
     All registration operations to the deleted data partition cause an error.
     Before deleting the data partition, check its data range by a metatable.
-    See the "[GridDB SQL Reference](../14.md_reference_sql/md_reference_sql.md)"  for the details of the metatable schema.
+
 
     By deleting an interval partitioned table, all data partitions that belong to it are also deleted.
 
@@ -421,14 +420,6 @@ The data in the same range are stored in the same data partition, so for the con
 
     In the case of reaching the upper limit, 10000, for the number of data partitions or existing unnecessary data partitions, the maintenance by deleting data partitions is needed.
 
-    -   How to check the number of data partitions
-
-        It can be check by search the metatable that holds the data about data partitions. See "[GridDB SQL Reference](../14.md_reference_sql/md_reference_sql.md)"  for details.
-
-
-    -   How to delete data partitions
-
-        They can be deleted by specifying the lower limit value in the data partition. See "[GridDB SQL Reference](../14.md_reference_sql/md_reference_sql.md)"  for the details.
 
 ![Examples of interval partitioned table creation and deletion](./img/func_partitioning_interval2.png)
 
@@ -655,7 +646,6 @@ In the NoSQL I/F, 2 types of timeout could be notified to the application develo
     A failover timeout time can be specified in the application by a parameter during cluster connection. Set the timeout time to meet the system requirements.
 
 Both the transaction timeout and failover timeout can be set when connecting to a cluster using a GridDB object in the Java API or C API.
-See "[GridDB Java API Reference](../12.md_reference_java_api/md_reference_java_api.html)" and "[GridDB C API Reference](../13.md_reference_c_api/md_reference_c_api.html)"  for details.
 
 
 
@@ -790,8 +780,6 @@ Add a new column to a container.
 
 - NoSQL API
   - Add a column with GridStore\#putContainer.
-  - Get container information "ContainerInfo" from an existing container. Execute putContainer after setting a new column to container information.
-    See "[GridDB Java API Reference](../12.md_reference_java_api/md_reference_java_api.html)"  for details.
 
   - [Example program]
     ```java
@@ -811,12 +799,11 @@ Add a new column to a container.
 
 - SQL
   - Add a column using the ALTER TABLE syntax.
-  - Only the operation of adding a column to the tail is available. See the "[GridDB SQL Reference](../14.md_reference_sql/md_reference_sql.md"  for details.
 
 If you obtain existing rows after adding columns, the "empty value" defined in the data type of each column as a additional column value returns.
-See Container\<K,R\> of a "[GridDB Java API Reference](../12.md_reference_java_api/md_reference_java_api.html)" for details about the empty value.
+See Container\<K,R\> of a "[GridDB Java API Reference](https://docs.griddb.net/GridDB_Java_API_Reference.html)" for details about the empty value.
 (In V4.1, there is a limitation "Getting existing rows after addition of a column results in NULL return from columns without NOT NULL constraint.")
-  See the limitations page of "[GridDB Release Notes](../1.md_release_notes/md_release_notes.md)"  for details.
+  See the limitations page of "[GridDB Release Notes](../about/release-notes)"  for details.
 
 ![Example of adding an column](./img/add_column.png)
 
@@ -826,15 +813,13 @@ Delete a column. It is only operational with NoSQL APIs.
 
 -   NoSQL API
     -   Delete a column with GridStore\#putContainer. Get container information "ContainerInfo" from an existing container at first. Then, execute putContainer after excluding column information of a deletion target.
-      See "[GridDB Java API Reference](../12.md_reference_java_api/md_reference_java_api.html)" for details.
+      See "[GridDB Java API Reference](https://docs.griddb.net/GridDB_Java_API_Reference.html)" for details.
 
 
 ### Rename column
 
 Rename a container column, which is only operational with SQL.
 
--   SQL
-    - Add a column using the ALTER TABLE syntax. See the "[GridDB SQL Reference](../14.md_reference_sql/md_reference_sql.md)"  for details.
 
 ## Database compression/release function
 

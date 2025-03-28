@@ -22,7 +22,7 @@ The operation of a cluster composition is shown below.
 
 ![Operation of a cluster composition](./img/arc_clusterConfigration.png)
 
-To start up a node and compose a cluster, the [operation commands](operating-function/#operating_commands) gs_startnode/gs_joincluster command or [gs_sh](#gs_sh) are used. In addition, there is a service control function to start up the nodes at the same time as the OS and to compose the cluster.
+To start up a node and compose a cluster, the [operation commands](./operating-function) gs_startnode/gs_joincluster command or [gs_sh](#gs_sh) are used. In addition, there is a service control function to start up the nodes at the same time as the OS and to compose the cluster.
 
 
 To compose a cluster, the number of nodes joining a cluster (number of nodes constituting a cluster) and the cluster name must be the same for all the nodes joining the cluster.
@@ -31,7 +31,7 @@ Even if a node fails and is separated from the cluster after operation in the cl
 
 Since cluster operation will continue as long as the majority of the number of nodes is in operation. So, a node can be separated from the cluster for maintenance while keeping the cluster in operation. The node can be get back into the cluster via network after the maintenance. Nodes can also be added via network to reinforce the system.
 
-The following two networks can be separated: the network that communicates within the cluster and the network dedicated to client communication. For details, refer to the [GridDB Administrator Guide](../4.md_administrators_guide/md_administrators_guide.md).
+The following two networks can be separated: the network that communicates within the cluster and the network dedicated to client communication.
 
 ### Status of node
 

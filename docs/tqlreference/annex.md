@@ -4,7 +4,7 @@
 ## Range of values
 
 Describe the range of values such as the upper limit of the value, etc. 
-Refer to GridDB [Architecture](../architecture/structure-of-griddb.md) for the restriction values of the system.
+Refer to GridDB [Architecture](../architecture/structure-of-griddb) for the restriction values of the system.
 
 ### Values that may be adopted by basic datatypes
 The values that may be adopted by the basic datatypes below are as follows.

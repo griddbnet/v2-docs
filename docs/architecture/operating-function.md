@@ -468,7 +468,6 @@ There is also no need to be aware of the arrangement position in data extraction
 -   **Export execution data file**
     -   Save the data during export execution. This is required to directly recover exported data in a GridDB cluster.
 
-  \* See "[GridDB Operation Tools Reference](../5.md_reference_operation_tool/md_reference_operation_tool.md)" for details.
 
 [Import]
 
@@ -850,7 +849,7 @@ quit
 ```
 
 Change the node variables such as node 1, node 2, node 3 that constitute a cluster, and change the cluster variable such as cl1, user settings and database data where appropriate to suit the environment.
-See "[GridDB Operation Tools Reference](../5.md_reference_operation_tool/md_reference_operation_tool.md)"  for the details about gs_sh.
+
 
 Execute the gs_sh script file as shown below to collect a list of containers and partitions.
 
@@ -1533,7 +1532,6 @@ Output format of event log is as follows.
 -   (Date and time) (host name) (thread no.) (log level) (category) [(error trace no.): (error trace no. and name)] (message) \< (base64 detailed information: Detailed information for problem analysis in the support service)\>
 
     An overview of the event can be found using the error trace number.
-    A solution to the problem can be searched in "[GridDB Error Codes](../6.md_error_code/md_error_code.md)" using the error trace number. A output example of an event log is shown below.
 
 ```
 
@@ -1837,8 +1835,6 @@ $ gs_partition -u admin/admin -n 1
 [Note]
 -   The schema of the metatable "\#table_partitions" may be changed in future version.
 
-[Note]
--   See the "[GridDB SQL Reference](manuals/14.md_reference_sql/md_reference_sql.md)" for the details of the metatable schema.
 
 
 ## Operating tools for the system
@@ -1929,5 +1925,3 @@ gs_sh provides, cluster operations such as starting a node, starting a cluster, 
 - Data operation
   - Creating containers, building an index, executing TQL and SQL, etc.
 
-
-See "[GridDB Operation Tools Reference](../5.md_reference_operation_tool/md_reference_operation_tool.md)" for the details about gs_sh operations.

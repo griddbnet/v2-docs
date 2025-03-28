@@ -20,7 +20,7 @@ Once you install WSL, you will have [Ubuntu](https://en.wikipedia.org/wiki/Ubunt
 
 ## Installing GridDB
 
-You can read about installing GridDB on Ubuntu in the docs: [Installation - Ubuntu](/installation/ubuntu/), but here are the basic instructions. What we will do is add the GridDB apt repository into our apt-get sources list so that it knows where to download GridDB. Once it's added, we can simply run an apt install and it will fetch and install everything you need to get started.
+You can read about installing GridDB on Ubuntu in the docs: [Installation - Ubuntu](./ubuntu), but here are the basic instructions. What we will do is add the GridDB apt repository into our apt-get sources list so that it knows where to download GridDB. Once it's added, we can simply run an apt install and it will fetch and install everything you need to get started.
 
 ```bash
 $ sudo sh -c 'echo "deb https://www.griddb.net/apt griddb/5.7 multiverse" >>  /etc/apt/sources.list.d/griddb.list'

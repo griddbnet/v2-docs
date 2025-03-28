@@ -2,9 +2,9 @@
 
 To get started with GridDB, we have prepared a sandbox of the GridDB server. You can get a quick rundown of the GridDB CLI from [GitHub](https://github.com/griddb/cli/blob/main/Specification_en.md) and from this [blog](https://griddb.net/en/blog/griddb-community-edition-v4-6-new-features/). 
 
-We have pre-loaded some containers for easy access. These containers are called: `Cereal`, `c001`, `t001`, `WeatherStation`, and `InstrumentLog`. Of these containers, `t001`, and `InstrumentLog` are the [Time Series Containers](/architecture/data-model/#type).
+We have pre-loaded some containers for easy access. These containers are called: `Cereal`, `c001`, `t001`, `WeatherStation`, and `InstrumentLog`. Of these containers, `t001`, and `InstrumentLog` are the [Time Series Containers](../architecture/data-model).
 
-To query these containers, you can use either SQL or TQL. If you are unfamiliar with TQL, it is the query language used by GridDB. It very similar to SQL but has some key differences; you can read more about TQL in this [blog](https://griddb.net/en/blog/griddb-query-language/) and [technical document](/tqlreference/tql-syntax-and-calculation-functions/). 
+To query these containers, you can use either SQL or TQL. If you are unfamiliar with TQL, it is the query language used by GridDB. It very similar to SQL but has some key differences; you can read more about TQL in this [blog](https://griddb.net/en/blog/griddb-query-language/) and [technical document](../tqlreference/tql-syntax-and-calculation-functions). 
 
 As a rapid fire, here are some examples of commands you can run now to get your feet wet with the shell:
 

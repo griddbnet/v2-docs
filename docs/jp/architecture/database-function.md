@@ -102,7 +102,6 @@ GridDBではリバランス処理により、コンテナ配置は動的に変�
 
     -   更新用ロックをかけることはできません。
 
-    TQLの詳細は『[GridDB TQL リファレンス](../11.md_reference_tql/md_reference_tql.md)』を参照ください。
 
 -   SQLとは
 
@@ -110,7 +109,6 @@ GridDBではリバランス処理により、コンテナ配置は動的に変�
 
     NoSQLインターフェースで作成したコンテナに対しても、SQLを利用することができます。
 
-    SQLの詳細は『[GridDB SQLリファレンス](../14.md_reference_sql/md_reference_sql.md)』を参照ください。
 
 <a id="batch_functions"></a>
 ### 複数コンテナへの一括処理機能
@@ -412,7 +410,6 @@ GridDBではテーブルパーティショニングの方法として、ハッ�
     データパーティション単体を削除できます。一度削除したデータパーティションは、再作成できません。
     削除したデータパーティションに対する新規データ登録はすべてエラーとなります。
     データパーティションを削除する前には、メタテーブルで削除対象のデータパーティションが管理するデータの範囲を確認してください。
-    メタテーブルの詳細は『[GridDB SQLリファレンス](../14.md_reference_sql/md_reference_sql.md)』をご参照ください。
 
     テーブルを削除すると、そのテーブルを構成するデータパーティションをすべて削除します。
 
@@ -424,11 +421,8 @@ GridDBではテーブルパーティショニングの方法として、ハッ�
 
     -   データパーティション数の確認方法
 
-        データパーティションの情報を管理しているメタテーブルを参照して確認します。詳細は『[GridDB SQLリファレンス](../14.md_reference_sql/md_reference_sql.md)』を参照ください。
-
     -   データパーティションの削除方法
 
-        テーブルパーティションの下限値を指定して削除を行います。詳細は『[GridDB SQLリファレンス](../14.md_reference_sql/md_reference_sql.md)』を参照ください。
 
 ![インターバルパーティションテーブル作成・削除の例](./img/func_partitioning_interval2.png)
 
@@ -654,8 +648,6 @@ NoSQL I/Fでは、アプリケーション開発者に通知されるタイム�
 
     フェイルオーバータイムアウトは、クラスタ接続時のパラメータとしてアプリケーションで指定できます。システムの要件に合わせてタイムアウト時間を設定してください。
 
-トランザクションタイムアウト、フェイルオーバータイムアウトともに、Java APIやC APIでGridStoreオブジェクトを用いてクラスタに接続する際に設定できます。
-詳細は『[GridDB Java APIリファレンス](../12.md_reference_java_api/md_reference_java_api.html)』や『[GridDB C APIリファレンス](../13.md_reference_c_api/md_reference_c_api.html)』を参照ください。
 
 　
 
@@ -791,7 +783,6 @@ GridDBでは、コンテナ単位にブロックを占有するのではなく�
 - NoSQL APIの場合
   - GridStore\#putContainerを用いてカラム追加します。
   - 既存コンテナからコンテナ情報情報ContainerInfoを取得し、コンテナ情報に新しいカラムをセットしてからputContainerを実行します。
-    詳細は『[GridDB C APIリファレンス](../13.md_reference_c_api/md_reference_c_api.html)』をご参照ください。
 
   - 【プログラム例】
     ```java
@@ -811,12 +802,9 @@ GridDBでは、コンテナ単位にブロックを占有するのではなく�
 
 - SQLの場合
   - ALTER TABLE構文を用いてカラム追加します。
-  - 末尾へのカラム追加の操作のみできます。詳細は『[GridDB SQLリファレンス](../14.md_reference_sql/md_reference_sql.md)』をご参照ください。
 
-カラムを追加した後に既存ロウを取得した場合、追加カラムの値はカラムのデータ型ごとに定義されている「空の値」が返ります。
-空の値の詳細は『[GridDB Java APIリファレンス](../12.md_reference_java_api/md_reference_java_api.html)』のContainer&lt;K,R&gt;をご参照ください。
+カラムを追加した後に既存ロウを取得した場合、追加カラムの値はカラムのデータ型ごとに定義されている「空の値」が返ります
 (V4.1では、制限事項「カラム追加後に既存のロウを参照した時、NOT NULL制約が付いていないカラムはNULLが返る」があります。
-  詳細は『[GridDB リリースノート](manuals/1.md_release_notes/md_release_notes.md)』の制限事項の項目をご参照ください。)
 
 ![カラム追加の例](./img/add_column.png)
 
@@ -826,7 +814,6 @@ GridDBでは、コンテナ単位にブロックを占有するのではなく�
 
 -   NoSQL API
     -   GridStore\#putContainerを用いてカラム削除します。既存コンテナからコンテナ情報ContainerInfoを取得し、削除対象のカラム情報を除いてからputContainerを実行します。
-      詳細は『[GridDB SQLリファレンス](../14.md_reference_sql/md_reference_sql.md)』をご参照ください。
 
 
 ### カラム名変更
@@ -834,7 +821,7 @@ GridDBでは、コンテナ単位にブロックを占有するのではなく�
 コンテナのカラム名を変更します。SQLのみで操作できます。
 
 -   SQL
-    - ALTER TABLE構文を用いてカラム名を変更します。詳細は『[GridDB SQLリファレンス](../14.md_reference_sql/md_reference_sql.md)』をご参照ください。
+    - ALTER TABLE構文を用いてカラム名を変更します。
 
 ## データベース圧縮/解放機能
 

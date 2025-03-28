@@ -129,7 +129,6 @@ TQLでは2次元、3次元の空間を定義する空間生成関数と空間型
  SELECT * WHERE ST_MBRIntersects(geom, ST_GeomFromText('POLYGON((0 0,10 0,10 10,0 10,0 0))'))
 ```
 
-TQLで提供する関数の詳細は『[GridDB TQL リファレンス](../11.md_reference_tql/md_reference_tql.md)』を参照ください。
 
 
 #### 複合型
@@ -188,9 +187,6 @@ ROWKEY(PRIMARY KEY)に設定したカラムには、カラムの型に応じて�
 
 GridDBの現バージョンでは、ROWKEY(PRIMARY KEY)に指定できるSTRING、INTEGER、LONG、TIMESTAMPのすべての型のデフォルトの索引はTREE索引です。
 
-
-[メモ]
-- NoSQLインターフェースにて、複合ロウキーを設定する例は『[GridDB プログラミングガイド](../10.md_programming_guide/md_programming_guide.md)』の「複合ロウキーを扱う」を参照ください。
 
 　　
 

@@ -32,7 +32,7 @@ Durability）を保証しています。
 GridDB の２つの主要なコンテナタイプ：一般用途のための「コレクションコンテナ」と、時系列データ管理のた
 めの「時系列コンテナ」
 
-![containers](/img/containers.png)
+![containers](./img/containers.png)
 
 時系列コンテナは、IoT において発生するタイムスタンプに関連付けられたデータの管理に適しています。
 GridDB は以下のような様々な時系列データ処理をサポートします。

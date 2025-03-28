@@ -33,16 +33,16 @@ Note. In principle, arithmetic precision conforms to the IEEE754 specifications;
 
 ### Time (TIMESTAMP)
 
-Represents the combination of a date consisting of year, month and day, and a time consisting of hour, minute and second. Refer to the Annex [Range of values](annex/#label_range_of_values) for the display range.
+Represents the combination of a date consisting of year, month and day, and a time consisting of hour, minute and second. Refer to the Annex [Range of values](annex#label_range_of_values) for the display range.
 
 ### Spatial (GEOMETRY)
 
-Represents the spatial structure. Refer to GridDB [Architecture](../architecture/structure-of-griddb.md) for the upper limit size. 
+Represents the spatial structure. Refer to GridDB [Architecture](../architecture/structure-of-griddb) for the upper limit size. 
 It does not support non-numeric numbers (NAN) and positive and negative infinity (INF, -INF) as the number of coordinates represented by each structure. In addition, it is capable of storing SRID (Spatial Reference System Identifier) as an integer value, but does not support coordinate range limit by the coordinate system represented by the SRID and the coordinate conversion by the conversion of SRID.
 
 ### BLOB
 
-Represents binary data, such as image and sound. Refer to GridDB [Architecture](../architecture/structure-of-griddb.md) for the upper limit size.
+Represents binary data, such as image and sound. Refer to GridDB [Architecture](../architecture/structure-of-griddb) for the upper limit size.
 
 ## Composite
 
@@ -51,7 +51,7 @@ Here are shown the definitions of types which can be represented by a combinatio
 ### Array
 
 Represent a sequence of values. The following types are available for array values. The length of an array indicates the number of array elements. The minimum size is 0. 
-Refer to GridDB [Architecture](../architecture/structure-of-griddb.md) for the upper limit size. The element of array cannot be set to NULL.
+Refer to GridDB [Architecture](../architecture/structure-of-griddb) for the upper limit size. The element of array cannot be set to NULL.
 - Boolean
 - String 
 - Integer

@@ -210,7 +210,7 @@ YYYY-MM-DDThh:mm:ss.SSSZ
 - ss: Seconds. Must be two digits, from 0 to 59.
 - SSS: Milliseconds. Must be three digits, from 0 to 999.
 
-Refer to the Annex [Range of values](annex/#label_range_of_values) for the display range.
+Refer to the Annex [Range of values](annex#label_range_of_values) for the display range.
 
 #### TIMESTAMPADD(YEAR|MONTH|DAY|HOUR|MINUTE|SECOND|MILLISECOND, timestamp, duration)
 

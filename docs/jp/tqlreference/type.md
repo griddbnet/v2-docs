@@ -13,7 +13,7 @@
 ### 文字列(STRING)型
 
 Unicodeコードポイントを文字とする、任意個数の文字の列より構成されます。ただし、NULL文字(U+0000)は扱いません。
-上限サイズについては『[GridDB 機能リファレンス](../architecture/structure-of-griddb/)』を参照してください。
+上限サイズについては『[GridDB 機能リファレンス](../architecture/structure-of-griddb)』を参照してください。
 
 ### 整数型
 
@@ -37,12 +37,12 @@ IEEE754で定められた浮動小数点数を表します。精度に応じた�
 
 ### 空間(GEOMETRY)型
 
-空間構造を表します。上限サイズについては『[GridDB 機能リファレンス](../architecture/structure-of-griddb/)』を参照してください。
+空間構造を表します。上限サイズについては『[GridDB 機能リファレンス](../architecture/structure-of-griddb)』を参照してください。
 各構造の表す座標の数値として非数(NAN)や正負の無限大(INF、-INF)は扱いません。 また、SRID (Spatial Reference System Identifier)を整数型の値として格納できますが、SRIDの表す座標系による座標の範囲制限や、SRIDの変換による座標変換については対応していません。
 
 ### BLOB型
 
-画像や音声などのバイナリデータを表します。上限サイズについては『[GridDB 機能リファレンス](../architecture/structure-of-griddb/)』を参照してください。
+画像や音声などのバイナリデータを表します。上限サイズについては『[GridDB 機能リファレンス](../architecture/structure-of-griddb)』を参照してください。
 
 ## 複合型
 
@@ -51,7 +51,7 @@ IEEE754で定められた浮動小数点数を表します。精度に応じた�
 ### 配列型
 
 値の列を表します。以下の型について配列型を提供します。長さとは、構成される配列要素の数であり、最小値は0となります。
-長さの上限については『[GridDB 機能リファレンス](../architecture/structure-of-griddb/)』を参照してください。配列の要素にNULLは設定できません。
+長さの上限については『[GridDB 機能リファレンス](../architecture/structure-of-griddb)』を参照してください。配列の要素にNULLは設定できません。
 -   ブール型
 -   文字列型
 -   整数型

@@ -42,13 +42,13 @@ The Nifi Flow defines how data is extracted, transformed, and loaded with a seri
 
 The following screenshot depicts the overall flow and how the various processors are connected:
 
-![0_NifiFlow](/img/0_NifiFlow.png)
+![0_NifiFlow](./img/0_NifiFlow.png)
 
 The LogAttributes are generic and show the number of failed or successful records output by a processor.
 
 The AvroRegistry Controller defines schemas and is referenced by the other controllers, in this case the schema of the CSV file we're reading and the schema of the GridDB table/container that we're writing.
 
-![100_AvroRegistry.png](/img/100_AvroRegistry.png)
+![100_AvroRegistry.png](./img/100_AvroRegistry.png)
 
 Most of the NYCC data is missing one or more data fields which can cause errors, so defaults are set in the input schema as follows:
 
@@ -148,30 +148,30 @@ The defaults aren't required in the output schema as the fields have been popula
 
 The DBCPConnectionPool controller is responsible for all database connections within our flow and it uses the GridDB JDBC interface. It is configured with the JDBC driver, JAR path, connection url, username, and password as follows:
 
-![99_DBCP.png](/img/99_DBCP.png)
+![99_DBCP.png](./img/99_DBCP.png)
 
 ### GetFile
 
-![1_GetFile.png](/img/1_GetFile.png)
+![1_GetFile.png](./img/1_GetFile.png)
 
 The GetFile processor reads the CSV file from disk. All that needs to be configured is the path where the CSV will be read. It should be noted that the CSV will be deleted after being read, so it is best to create a new staging directory and copy in files as required.
 
 ### PartitionRecord
 
-![2_PartitionRecord.png](/img/2_PartitionRecord.png)
+![2_PartitionRecord.png](./img/2_PartitionRecord.png)
 
 The first PartitionRecord processor splits the records from the flow based on a column value. In the case of the New York Crime Complaint data, we're going to split the data by precinct which is the ADDR_PCT_CD field. It works by setting the ${precinct} attribute to the value of the /ADDR_PCT_CD field. PutDatabaseRecord and PutSQL processors will use the ${precinct} attribute to determine the table name. This split allows us to put data for individual police precincts into seperate tables/containers.
 
 The RawCSVReader controller is used to read the Raw CSV from GetFile while the RawCSVRecordSetWriter re-writes the CSV for the next Processor in the chain.
 
-![101_RawCSVReader.png](/img/101_CSVReader.png)
+![101_RawCSVReader.png](./img/101_CSVReader.png)
 
-![102_RawCSVRecordSetWriter.png](/img/102_CSVRecordSetWriter.png)
+![102_RawCSVRecordSetWriter.png](./img/102_CSVRecordSetWriter.png)
 
 
 ### PutSQL
 
-![4_PutSQL.png](/img/4_PutSQL.png)
+![4_PutSQL.png](./img/4_PutSQL.png)
 We need to create the table for a precinct before PutDatabaseRecord can write; PutSQL is the best processor for that. It reads the ${precinct} attribute and executes the following SQL statement:
 
 ```
@@ -218,13 +218,13 @@ create table precinct_test (
 
 ### PartitionRecord
 
-![3_PartitionRecord.png](/img/3_PartitionRecord.png)
+![3_PartitionRecord.png](./img/3_PartitionRecord.png)
 
 The second PartitionRecord processor splits up the input so that each row of the CSV becomes one record. Records are still read and written by RawCSVReader and RawCSVRecordSetWriter respectively. 
 
 ### UpdateRecord
 
-![4_UpdateRecord.png](/img/4_UpdateRecord.png)
+![4_UpdateRecord.png](./img/4_UpdateRecord.png)
 
 The first UpdateRecord processor changes the date format of the CSV from MM/dd/yyyy to yyyy-MM-dd as that is the expected format to convert into a timestamp in the next processor.
 
@@ -236,7 +236,7 @@ The property updates used are:
 
 ### UpdateRecord
 
-![5_UpdateRecord.png](/img/5_UpdateRecord.png)
+![5_UpdateRecord.png](./img/5_UpdateRecord.png)
 
 The UpdateRecord processor combines Date and Time fields and then converts the record to Avro by using the AvroRecordSetWriter as the output. By converting the record from CSV to Avro we are able to convert a date string such as 2021-02-11 18:14:17 to an epoch 1613067247 that can be written to the timestamp field by the PutDatabaseRecord processor. 
 
@@ -249,14 +249,14 @@ The property updates used are:
 
 The AvroRecordSetWriter controller is configured as below:
 
-![104_AvroRecordSetWriter](/img/104_AvroRecordSetWriter.png)
+![104_AvroRecordSetWriter](./img/104_AvroRecordSetWriter.png)
 
 ### PutDatabaseRecord
 
-![6_PutDatabaseRecord.png](/img/6_PutDatabaseRecord.png)
+![6_PutDatabaseRecord.png](./img/6_PutDatabaseRecord.png)
 Finally the last process, PutDatabaseRecord, writes the incoming records to GridDB using the DBCPConnectionPool controller. The records are read with the AvroReader controller which is configured as shown:
 
-![6_PutDatabaseRecord.png](/img/6_PutDatabaseRecord.png)
+![6_PutDatabaseRecord.png](./img/6_PutDatabaseRecord.png)
 
 ## Conclusion
 
@@ -266,4 +266,4 @@ Finally, to start to the ETL process, we copy the downloaded rows.csv to the inp
 cp ~/Downloads/rows.csv /path/to/nifi-input/
 ```
 
-This tutorial has demonstrated how to load a large dataset stored in CSV to GridDB. With the extensibility of Nifi, it is possible to Extract, Transform, and Load nearly any data set from any destination to any source without writing complex scripts. You can download the Nifi Flow template used in this tutorial [here](). 
+This tutorial has demonstrated how to load a large dataset stored in CSV to GridDB. With the extensibility of Nifi, it is possible to Extract, Transform, and Load nearly any data set from any destination to any source without writing complex scripts. 

@@ -128,7 +128,6 @@ With TQL, management of two or three-dimensional spatial structure is possible. 
  SELECT * WHERE ST_MBRIntersects(geom, ST_GeomFromText('POLYGON((0 0,10 0,10 10,0 10,0 0))'))
 ```
 
-See "[GridDB TQL Reference](../11.md_reference_tql/md_reference_tql.md)"  for details of the functions of TQL.
 
 
 #### HYBRID
@@ -188,8 +187,6 @@ A default index prescribed in advance according to the column data type can be s
 In the current version GridDB, the default index of all STRING, INTEGER, LONG or TIMESTAMP data that can be specified in a ROWKEY (PRIMARY KEY) is the TREE index.
 
 
-[Notes]
-- Refer to "Handling composite row keys" in "[GridDB SQL Reference](../14.md_reference_sql/md_reference_sql.md)" for an example of setting composite row keys with NoSQL interface.
 
 
 

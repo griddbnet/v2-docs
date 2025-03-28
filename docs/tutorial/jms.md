@@ -12,7 +12,7 @@ Due to the ubiquity of the Hypertext Transfer Protocol (HTTP), using the REST tr
 
 For this demonstration, we will spin up a generic Go server which will send an email to the address of our choice whenever our container gets new data written into it. We will use [Sendgrid](https://sendgrid.com/) to handle the emailing. Here is what the Go server looks like in its entirety:
 
-```golang
+```go
 package main
 
 import (

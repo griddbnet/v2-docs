@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this tutorial we will examine how to forecast the number of Crime Complaints in New York City by aggregating the data we ingested in the [Nifi ETL tutorial]() and then using the statsmodels SARIMAX model to produce the forecast. The SARIMAX acronym stands for Seasonal Autoregressive Integrated Moving Average Exogenous and is an extension of ARIMA. The differences between the two are explained in this [Machine Learning Mastery](https://machinelearningmastery.com/sarima-for-time-series-forecasting-in-python/) blog. 
+In this tutorial we will examine how to forecast the number of Crime Complaints in New York City by aggregating the data we ingested in the [Nifi ETL tutorial](./nifi) and then using the statsmodels SARIMAX model to produce the forecast. The SARIMAX acronym stands for Seasonal Autoregressive Integrated Moving Average Exogenous and is an extension of ARIMA. The differences between the two are explained in this [Machine Learning Mastery](https://machinelearningmastery.com/sarima-for-time-series-forecasting-in-python/) blog. 
 
 ## Aggregating Data
 
@@ -151,7 +151,7 @@ plt.legend()
 plt.show()
 ```
 
-![forecast1.png](/img/forecast1.png)
+![forecast1.png](./img/forecast1.png)
 
 The above shows a forecast for data that we have fed into the model; the get_forecast function below returns the forecast for data points in the future which can also be plotted with its confidence interval (which grows as time progresses) as well.
 
@@ -170,7 +170,7 @@ plt.legend()
 plt.show()
 ```
 
-![forecast2.png](/img/forecast2.png)
+![forecast2.png](./img/forecast2.png)
 
 ## Conclusion
 

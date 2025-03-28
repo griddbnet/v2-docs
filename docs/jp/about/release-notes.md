@@ -133,9 +133,7 @@ GridDB CE V5.0の主な変更点は以下のとおりです。
 
     ALTER TABLE *テーブル名* RENAME COLUMN *変更前カラム名* TO *変更後カラム名*;
 
-5. GridDBサービス機能
-    - OS起動/停止時にGridDBサーバの起動・停止が可能になりました。利用方法は[GridDB_Service_ja.md](GridDB_Service_ja.md)を参照してください。
-6. [エクスポート・インポートツール](https://github.com/griddb/expimp)
+5. [エクスポート・インポートツール](https://github.com/griddb/expimp)
     - GridDBのデータのエクスポート/インポートを行うツールを提供します。
 
 ---

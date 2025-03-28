@@ -123,11 +123,8 @@ url = "jdbc:gs:///yourClusterName/?notificationMember=10.45.1.10:20001&connectio
 
     ALTER TABLE *table name* RENAME COLUMN *column name before renaming* TO *column name after renaming*;
 
-5. GridDB Service
 
-    - When the OS starts (stops), we can start (stop) GridDB Server. Please refer to [GridDB_Service.md](GridDB_Service.md) for details.
-
-6. [Export/Import tool](https://github.com/griddb/expimp)
+5. [Export/Import tool](https://github.com/griddb/expimp)
 
     - A tool to export/import data from and to a GridDB cluster.
 

@@ -9,31 +9,11 @@ export default defineConfig({
       'link',
       { rel: 'icon', href: '/favicon.ico' }
     ],
-    [
-      'link',
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
-    ],
-    [
-      'link',
-      { href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', rel: 'stylesheet' }
-    ]
-  ],
-  ignoreDeadLinks: [
-    // ignore exact url "/playground"
-    '/playground',
-    // ignore all localhost links
-    /^https?:\/\/localhost/,
-    // ignore all links include "/repl/""
-    /\/repl\//,
-    // custom function, ignore all links include "ignore"
-    (url) => {
-      return url.toLowerCase().includes('ignore')
-    }
   ],
   locales: {
     root: {
       label: 'English',
-      lang: 'en'
+      lang: 'en',
     },
     jp: {
       label: 'Japanese',
@@ -42,7 +22,6 @@ export default defineConfig({
     }
   },
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     
     nav: [
       { text: 'Home', link: '/' },
@@ -251,7 +230,7 @@ export default defineConfig({
       ],
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/griddb/griddb' }
     ]
   }
 })
