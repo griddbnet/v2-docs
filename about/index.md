@@ -1,3 +1,9 @@
+---
+next: 
+    text: 'How to Get Started'
+    link: '/gettingstarted/'
+---
+
 # What is GridDB
 
 <p class="iframe-container">

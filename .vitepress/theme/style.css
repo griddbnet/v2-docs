@@ -18,4 +18,29 @@
     top: 0;
     width: 100%;
 }
-   
+
+.button-flex-container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.install-btn {
+    display: flex;
+    background-color: #44bae8;
+    border-radius: 25px;
+    margin: 5px;
+    font-size: 17px;
+    border: none;
+    color: #222222  ;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 6px;
+    cursor: pointer;
+}
+
+.install-btn:hover {
+    background-color: #88d3f0;
+}

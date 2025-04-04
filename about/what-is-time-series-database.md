@@ -1,3 +1,9 @@
+---
+next: 
+    text: 'How to Get Started'
+    link: '/gettingstarted/'
+---
+
 # What is a Time Series Database?
 
 ![Google Trend](img/GoogleTrends.png)
