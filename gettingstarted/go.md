@@ -364,7 +364,7 @@ if err != nil {
 
 ### Querying
 
-To run some basic queries, let's use the [GridDB Shell](), which came to GridDB with version 4.6. To start, let's drop into the shell and do a basic check to make sure our data is there: 
+To run some basic queries, let's use the [GridDB Shell](/gettingstarted/cli.md), which came to GridDB with version 4.6. To start, let's drop into the shell and do a basic check to make sure our data is there: 
 
 ``` bash
 gs> load default.gsh

@@ -46,6 +46,10 @@ export default defineConfig({
           collapsed: true,
           items: [
             {
+              text: "Overview",
+              link: "/gettingstarted/Overview"
+            },
+            {
               text: 'Installation',
               items: [
                 { text: 'Ubuntu', link: '/installation/ubuntu' },
@@ -55,8 +59,8 @@ export default defineConfig({
               ]
             },
             { text: 'Web CLI (No Install)', link: '/gettingstarted/webshell' },
-            { text: 'Web API', link: 'https://griddb.net/en/blog/griddb-webapi/' },
-            { text: 'GridDB CLI', link: 'https://griddb.net/en/blog/griddb-community-edition-v4-6-new-features/' },
+            { text: 'Web API', link: '/gettingstarted/webapi' },
+            { text: 'GridDB CLI', link: '/gettingstarted/cli' },
             {
               text: 'Build an App',
               items: [
