@@ -11,11 +11,11 @@ variables:
 
 resources:
   repositories:
-  - repository: Documentation
+  - repository: v2-docs
     type: github
-    name: griddbnet/Documentation
+    name: griddbnet/v2-docs
     endpoint: github.com_Imisrael
-    ref: v4.5
+    ref: main
 
 pool:
   vmImage: ubuntu-latest
@@ -35,7 +35,8 @@ steps:
     targetType: 'inline'
     script: |
       home=$(Pipeline.Workspace)
-
+      npm add -D vitepress
+      npm install
       npm run docs:build
 
 - task: FtpUpload@2
