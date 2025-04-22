@@ -1,7 +1,7 @@
 ---
 next: 
     text: 'How to Get Started'
-    link: '/gettingstarted/'
+    link: '/gettingstarted/Overview'
 ---
 
 # What is a Time Series Database?

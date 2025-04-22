@@ -40,10 +40,17 @@ becomes
 }
 ```
 
-and to start and use:
+You can start/stop the service with the following command: `service griddb-webapi [start|stop|status|restart]`
+
+For example:
 
 ```bash
-$ sudo systemctl start griddb-webapi.service
+$ service griddb-webapi start
+```
+
+And then to use: 
+
+```
 $ curl --location -I 'http://localhost:8081/griddb/v2/myCluster/dbs/public/checkConnection' \
 --header 'Authorization: Basic YWRtaW46YWRtaW4='
 
@@ -51,5 +58,4 @@ HTTP/1.1 200
 Content-Length: 0
 Date: Wed, 09 Apr 2025 16:37:44 GMT
 ```
-
-the password here is `admin:admin` encoded to base64 format
+The Basic Auth credentials used here are in the style of `user:pass` encoded to base64. If using the defaults like shown in the example above, the values should be set to `admin:admin`.

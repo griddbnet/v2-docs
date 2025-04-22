@@ -59,8 +59,7 @@ $ gs_sh
 You can also start up the GridDB Web API: 
 
 ```bash
-$ sudo su gsadm
-$ nohup java -jar /usr/griddb-ce-webapi-5.7.0/griddb-webapi-ce-5.7.0.jar &
+$ service griddb-webapi start
 
 GridDB Web API is now running on port 8081
 ```
