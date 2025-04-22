@@ -1,19 +1,53 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# Node.js with Vue
+# Build a Node.js project that uses Vue.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
 - main
+
+variables:
+- group: Docs Creds
+
+resources:
+  repositories:
+  - repository: Documentation
+    type: github
+    name: griddbnet/Documentation
+    endpoint: github.com_Imisrael
+    ref: v4.5
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: NodeTool@0
+  inputs:
+    versionSpec: '22.x'
+  displayName: 'Install Node.js'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- checkout: self
+  path: "main"
+  displayName: 'checkout self'
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      home=$(Pipeline.Workspace)
+
+      npm run docs:build
+
+- task: FtpUpload@2
+  inputs:
+    credentialsOption: 'inputs'
+    serverUrl: $(ftp_url)
+    username: $(ftp_username)
+    password: $(ftp_password)
+    rootDirectory: '/home/vsts/work/1/main/.vitepress/dist/'
+    filePatterns: '**'
+    remoteDirectory: '/site/wwwroot/'
+    clean: false
+    cleanContents: true
+    preservePaths: true
+    trustSSL: false
