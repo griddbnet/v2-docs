@@ -15,7 +15,7 @@ If you prefer a video:
 First create the Apt Repo File:
 
 ```bash
-sudo sh -c 'echo "deb https://www.griddb.net/apt griddb/5.7 multiverse" >  /etc/apt/sources.list.d/griddb.list'
+sudo sh -c 'echo "deb https://www.griddb.net/apt griddb/5.8 multiverse" >  /etc/apt/sources.list.d/griddb.list'
 ```
 
 And then import the key: 
@@ -63,6 +63,18 @@ $ service griddb-webapi start
 
 GridDB Web API is now running on port 8081
 ```
+
+And then to use: 
+
+```
+$ curl --location -I 'http://localhost:8081/griddb/v2/myCluster/dbs/public/checkConnection' \
+--header 'Authorization: Basic YWRtaW46YWRtaW4='
+
+HTTP/1.1 200 
+Content-Length: 0
+Date: Wed, 09 Apr 2025 16:37:44 GMT
+```
+The Basic Auth credentials used here are in the style of `user:pass` encoded to base64. If using the defaults like shown in the example above, the values should be set to `admin:admin`.
 
 ### User and directory structure after installation
 
@@ -216,7 +228,7 @@ gsadm@server:/home$ gs_stat -u admin/admin
     "recovery": {
         "progressRate": 1
     },
-    "version": "5.3.0-39942 CE"
+    "version": "5.8.0-39942 CE"
 }
 ```
 
