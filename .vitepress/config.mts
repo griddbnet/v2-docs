@@ -161,23 +161,25 @@ export default defineConfig({
           ]
         },
         {
-          text: 'Installation',
-          collapsed: true,
-          items: [
-
-            { text: 'Ubuntu', link: '/jp/installation/ubuntu' },
-            { text: 'Rocky Linux', link: '/jp/installation/rocky-linux' },
-            { text: 'Docker', link: '/jp/installation/docker' },
-            { text: 'Misc (WSL, ChromeOS)', link: '/jp/installation/misc' }
-          ]
-        },
-        {
           text: 'はじめに',
           collapsed: true,
           items: [
+            {
+              text: "Overview",
+              link: "/jp/gettingstarted/Overview"
+            },
+            {
+              text: 'Installation',
+              items: [
+                { text: 'Ubuntu', link: '/jp/installation/ubuntu' },
+                { text: 'Rocky Linux', link: '/jp/installation/rocky-linux' },
+                { text: 'Docker', link: '/jp/installation/docker' },
+                { text: 'Misc (WSL, ChromeOS)', link: '/jp/installation/misc' }
+              ]
+            },
             { text: 'Web CLI (No Install)', link: '/jp/gettingstarted/webshell' },
-            { text: 'Web API', link: 'https://griddb.net/en/blog/griddb-webapi/' },
-            { text: 'GridDB CLI', link: 'https://griddb.net/en/blog/griddb-community-edition-v4-6-new-features/' },
+            { text: 'Web API', link: '/jp/gettingstarted/webapi' },
+            { text: 'GridDB CLI', link: '/jp/gettingstarted/cli' },
             {
               text: 'アプリ作成',
               items: [

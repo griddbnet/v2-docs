@@ -1,5 +1,5 @@
 # API References
 
-<a href="/ja/C-API-Reference.html">C API Reference</a>
+<a href="https://griddb.net/ja/docs/GridDB_C_API_Reference.html">GridDB_C_API_Reference</a>
 
-<a href="/ja/Java-API-Reference.html">Java API Reference</a>
+<a href="https://griddb.net/en/docs/GridDB_Java_API_Reference.html">GridDB_Java_API_Reference</a>

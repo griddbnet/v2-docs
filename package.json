@@ -1,9 +1,9 @@
 {
   "devDependencies": {
-    "vitepress": "^1.6.3",
     "@vitejs/plugin-vue": "^5.2.1",
     "vite": "^6.2.1",
-    "vite-plugin-vue-devtools": "^7.7.2"
+    "vite-plugin-vue-devtools": "^7.7.2",
+    "vitepress": "^1.6.3"
   },
   "scripts": {
     "docs:dev": "vitepress dev",

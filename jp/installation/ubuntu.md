@@ -8,7 +8,7 @@ Ubuntu 18.04で動作を確認しました。
 
 まず、Apt Repo Fileを作成します。
 
-    sudo sh -c 'echo "deb https://www.griddb.net/apt griddb/5.1 multiverse" >>  /etc/apt/sources.list.d/griddb.list'
+    sudo sh -c 'echo "deb https://www.griddb.net/apt griddb/5.7 multiverse" >>  /etc/apt/sources.list.d/griddb.list'
 
 そして、キーをインポートします。
 

@@ -11,7 +11,7 @@ CentOS 7.9で動作を確認しました。
     sudo cat > /etc/yum.repos.d/griddb.repo << EOF
     [griddb]
     name=GridDB.net
-    baseurl=https://griddb.net/yum/el7/5.1/
+    baseurl=https://griddb.net/yum/el7/5.7/
     enabled=1
     gpgcheck=1
     gpgkey=https://griddb.net/yum/RPM-GPG-KEY-GridDB.txt
