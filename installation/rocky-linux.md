@@ -88,26 +88,29 @@ gsadm@server:/home$ gs_stat -u admin/admin
 
 {
     "checkpoint": {
+        "autoArchive": false,
         "backupOperation": 0,
         "duplicateLog": 0,
-        "endTime": 1704321958864,
-        "mode": "NORMAL_CHECKPOINT",
-        "normalCheckpointOperation": 8,
+        "endTime": 1749149925097,
+        "mode": "RECOVERY_CHECKPOINT",
+        "normalCheckpointOperation": 0,
         "pendingPartition": 0,
         "periodicCheckpoint": "ACTIVE",
         "requestedCheckpointOperation": 0,
-        "startTime": 1704321958792
+        "startTime": 1749149923277
     },
     "cluster": {
         "activeCount": 1,
-        "applyRuleLimitTime": "2024-01-03T22:50:03.095Z",
+        "applyRuleLimitTime": "2025-06-05T18:59:28.104Z",
         "autoGoal": "ACTIVE",
         "clusterName": "myCluster",
-        "clusterRevisionId": "1b7bf220-84d2-4a75-9d5e-fe7cbd7dd96d",
-        "clusterRevisionNo": 530,
+        "clusterRevisionId": "d0c19c5e-ddf0-4fa5-ac50-15f9606c1a88",
+        "clusterRevisionNo": 5,
         "clusterStatus": "MASTER",
         "currentRule": "Initial",
         "designatedCount": 1,
+        "goalCurrentRule": "DEFAULT",
+        "goalDefaultRule": "DEFAULT",
         "loadBalancer": "ACTIVE",
         "master": {
             "address": "127.0.0.1",
@@ -122,20 +125,20 @@ gsadm@server:/home$ gs_stat -u admin/admin
         "nodeStatus": "ACTIVE",
         "notificationMode": "FIXED_LIST",
         "partitionStatus": "NORMAL",
-        "startupTime": "2024-01-03T22:05:52.095Z",
+        "startupTime": "2025-06-05T18:58:42.104Z",
         "syncCount": 2
     },
-    "currentTime": "2024-01-03T22:50:05Z",
+    "currentTime": "2025-06-05T18:59:03Z",
     "performance": {
         "backgroundMinRate": 0.1,
         "backupCount": 0,
         "checkpointFileFlushCount": 128,
-        "checkpointFileFlushTime": 67,
+        "checkpointFileFlushTime": 30,
         "checkpointWrite": 0,
         "checkpointWriteCompressTime": 0,
         "checkpointWriteSize": 0,
         "checkpointWriteTime": 0,
-        "currentTime": 1704322205315,
+        "currentTime": 1749149943584,
         "dataFileAllocateSize": 327680,
         "dataFileSize": 327680,
         "dataFileUsageRate": 0.6,
@@ -150,23 +153,26 @@ gsadm@server:/home$ gs_stat -u admin/admin
             "latestExpirationCheckTime": "Under measurement"
         },
         "logFileFlushCount": 256,
-        "logFileFlushTime": 2498,
+        "logFileFlushTime": 1609,
         "numBackground": 0,
         "numConnection": 1,
         "numNoExpireTxn": 0,
         "numSession": 0,
         "numTxn": 0,
         "ownerCount": 128,
-        "peakProcessMemory": 130265088,
+        "peakProcessMemory": 65404928,
         "poolBufferMemory": 65536,
-        "processMemory": 130265088,
+        "processMemory": 65404928,
         "sqlNumConnection": 1,
+        "sqlPeakTotalMemory": 258984,
         "sqlStoreSwapRead": 0,
         "sqlStoreSwapReadSize": 0,
         "sqlStoreSwapReadTime": 0,
         "sqlStoreSwapWrite": 0,
         "sqlStoreSwapWriteSize": 0,
         "sqlStoreSwapWriteTime": 0,
+        "sqlTotalMemory": 258984,
+        "sqlTotalMemoryLimit": 0,
         "storeCompressionMode": "NO_BLOCK_COMPRESSION",
         "storeDetail": {
             "batchFreeMapData": {
@@ -205,7 +211,7 @@ gsadm@server:/home$ gs_stat -u admin/admin
         "storeTotalUse": 196608,
         "swapRead": 1,
         "swapReadSize": 65536,
-        "swapReadTime": 4,
+        "swapReadTime": 0,
         "swapReadUncompressTime": 0,
         "swapWrite": 0,
         "swapWriteCompressTime": 0,
@@ -214,7 +220,7 @@ gsadm@server:/home$ gs_stat -u admin/admin
         "totalBackupLsn": 0,
         "totalLockConflictCount": 0,
         "totalOtherLsn": 0,
-        "totalOwnerLsn": 11,
+        "totalOwnerLsn": 3,
         "totalReadOperation": 0,
         "totalRowRead": 0,
         "totalRowWrite": 0,
@@ -226,7 +232,7 @@ gsadm@server:/home$ gs_stat -u admin/admin
     "recovery": {
         "progressRate": 1
     },
-    "version": "5.3.0-39942 CE"
+    "version": "5.8.0-40624 CE"
 }
 ```
 
