@@ -1,12 +1,12 @@
 ## GridDB Web API Quickstart
 
-If using GridDB in FIXED_LIST Mode (which is the default mode!), make the following changes to your web-api config:
+GridDBをFIXED_LISTモード（これはデフォルトモードです！）で使用する場合は、web-apiの設定に以下の変更を加えてください。
 
 ```bash
 $ cd /var/lib/gridstore/webapi/conf
 $ sudo vim repository.json
 ```
-
+旧
 ```bash
 {
   "clusters" : [
@@ -24,7 +24,7 @@ $ sudo vim repository.json
   ]
 }
 ```
-becomes
+更新後
 
 ```bash
 {
@@ -40,15 +40,15 @@ becomes
 }
 ```
 
-You can start/stop the service with the following command: `service griddb-webapi [start|stop|status|restart]`
+次のコマンドでサービスを開始／停止できます。
 
-For example:
+例：
 
 ```bash
 $ service griddb-webapi start
 ```
 
-And then to use: 
+そして、
 
 ```
 $ curl --location -I 'http://localhost:8081/griddb/v2/myCluster/dbs/public/checkConnection' \
@@ -58,4 +58,4 @@ HTTP/1.1 200
 Content-Length: 0
 Date: Wed, 09 Apr 2025 16:37:44 GMT
 ```
-The Basic Auth credentials used here are in the style of `user:pass` encoded to base64. If using the defaults like shown in the example above, the values should be set to `admin:admin`.
+ここで使用されているBasic認証の認証情報は、ユーザー名:パスワード の形式をBase64でエンコードしたものです。上記の例のようにデフォルトを使用する場合、値は admin:admin に設定してください。
