@@ -3,11 +3,11 @@
 
 ## Install Latest (Java API Based)
 
-The GridDB Python client now uses the native interface (Java) as its underlying API to make your function calls. Installation of this new connector now no longer relies on the c_client being installed, but instead uses the already installed Java. Let's install it!
+The GridDB Python client now uses the native interface (Java) as its underlying API to make GridDB function calls; installation of this new connector no longer relies on the c_client, but instead uses the already installed Java. Let's install the new client!
 
 ### Java & CLASSPATH
 
-To get this to work, let's first make sure you have Java installed and set as your JAVA_HOME environment variable. Here's how it works on my machine (Ubuntu 22.04): 
+To get this to work, let's first make sure Java is installed and the JAVA_HOME environment variable is set. Here's how it may work  on some machines as an example (Ubuntu 22.04): 
 
 ```bash
 $ sudo apt install default-jdk
@@ -40,6 +40,8 @@ $ curl -L -o arrow-memory-netty.jar https://repo1.maven.org/maven2/org/apache/ar
 $ cp ../java/target/gridstore-arrow-5.8.0.jar gridstore-arrow.jar
 $ export CLASSPATH=$CLASSPATH:./gridstore.jar:./gridstore-arrow.jar:./arrow-memory-netty.jar
 ```
+
+Slight editing of the sample files is also required to work with GridDB CE.
 
 And then edit the top of your sample files: 
 
@@ -77,9 +79,9 @@ The old c_client version doesn't rely on java or its jvm but instead on the c_cl
 
 ### Prereqs
 
-To install the Python client, it is required to first install the GridDB c_client. To do so, simply install the griddb-meta package from apt/yum and it will automatically be included. 
+To install this version of the Python client, it is required to first install the GridDB c_client. To do so, simply install the griddb-meta package from apt/yum and it will automatically be included. 
 
-You can install the c_client manually through Github as well: [https://github.com/griddb/c_client](https://github.com/griddb/c_client)
+You can also install the c_client manually through Github as well: [https://github.com/griddb/c_client](https://github.com/griddb/c_client)
 
 ### Wheel File
 
