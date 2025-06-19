@@ -1,101 +1,122 @@
 # Python
 
-<p class="iframe-container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yWCVfLoV9_0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
 
-## Installation
-### Install c_client
+## Install Latest (Java API Based)
 
-If you do not want to build from source, you can simply install the client via `pip` from [here](https://pypi.org/project/griddb-python/)
+The GridDB Python client now uses the native interface (Java) as its underlying API to make GridDB function calls; installation of this new connector no longer relies on the c_client, but instead uses the already installed Java. Let's install the new client!
 
-The GridDB c_client (a preqrequisite to using the Python Client) can be found here: [https://github.com/griddb/c_client](https://github.com/griddb/c_client). The RPM is available [here](https://github.com/griddb/c_client/releases). To get started simply `wget` the latest RPM and install.
+### Java & CLASSPATH
 
-``` bash
-$ wget \
-https://github.com/griddb/c_client/releases/download/v4.2.0/griddb_c_client-4.2.0-1.linux.x86_64.rpm
+To get this to work, let's first make sure Java is installed and the JAVA_HOME environment variable is set. Here's how it may work  on some machines as an example (Ubuntu 22.04): 
+
+```bash
+$ sudo apt install default-jdk
+$ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ```
-then we need to actually install the rpm
-``` bash
-$ sudo rpm -ivh griddb_c_client-4.2.0-1.linux.x86_64.rpm
-```
-and now the c_client is installed and ready in your `/usr/` directory. That was easy!
 
-## Install Python Client
-Installing the Python Client is slightly more involved but still a very easy process. First, let's download the file from GitHub
+### Downloading & Installing
 
-``` bash
-$ wget \
-https://github.com/griddb/python_client/archive/0.8.1.tar.gz
-```
-Next, let's unzip
+Now let's clone the repo and install: 
 
-``` bash
-$ tar xvzf 0.8.1.tar.gz
+```bash
+$ git clone https://github.com/griddb/python_client.git
+$ cd python_client/java
+$ mvn install
+$ cd ..
+$ cd python
+$ python3.12 -m pip install .
+$ cd ..
 ```
-and let's install the prereqs
-``` bash
-$ wget https://prdownloads.sourceforge.net/swig/swig-3.0.12.tar.gz
-tar xvfz swig-3.0.12.tar.gz
-cd swig-3.0.12
-./configure
-make 
-sudo make install
-```
-And then we may need to install pcre as well
-``` bash
-$ sudo yum install pcre2-devel.x86_64
-```
-Now of course we actually `make` our Python Client
-``` bash
-$ cd ../python_client
-make
-```
-If by chance you encounter the following error when attempting to make your Python Client
 
-    /usr/bin/ld: cannot find -lgridstore
-do not worry: it is an easy fix. The issue lies with needing your `Makefile` to point to your c_client. This means the only thing we need to do is add the `c_client/bin` location in the LDFLAGS option
+### Running Samples
 
-    SWIG = swig -DSWIGWORDSIZE64
-    CXX = g++
-    
-    ARCH = $(shell arch)
-    
-    LDFLAGS = -L/home/israel/c_client/bin -lpthread -lrt -lgridstore #added /home/israel/c_client_bin right here
-    
-    CPPFLAGS = -fPIC -std=c++0x -g -O2
-    INCLUDES = -Iinclude -Isrc
-    
-    INCLUDES_PYTHON = $(INCLUDES)   \
-                                    -I/usr/include/python3.6m
-    
-    PROGRAM = _griddb_python.so
-    EXTRA = griddb_python.py griddb_python.pyc
-    
-    SOURCES =         src/TimeSeriesProperties.cpp \
-                      src/ContainerInfo.cpp                 \
-                      src/AggregationResult.cpp     \
-                      src/Container.cpp                     \
-                      src/Store.cpp                 \
-                      src/StoreFactory.cpp  \
-                      src/PartitionController.cpp   \
-                      src/Query.cpp                         \
-                      src/QueryAnalysisEntry.cpp                    \
-                      src/RowKeyPredicate.cpp       \
-                      src/RowSet.cpp                        \
-                      src/TimestampUtils.cpp                        \
-    
-    all: $(PROGRAM)
-    
-    ... snip ...
-With the fix in place, `make` should work as intended. Next up: setting our environment variables. We just need to point to the proper locations:
+To run sample1.py
 
-``` bash
-$ export LIBRARY_PATH=$LIBRARY_PATH:[insert path to c_client]
-$ export  PYTHONPATH=$PYTHONPATH:[insert path to python_client]
-$ export LIBRARY_PATH=$LD_LIBRARY_PATH:[insert path to c_client/bin]
+
+```bash
+$ cd sample
+$ curl -L -o gridstore.jar https://repo1.maven.org/maven2/com/github/griddb/gridstore/5.8.0/gridstore-5.8.0.jar
+$ curl -L -o arrow-memory-netty.jar https://repo1.maven.org/maven2/org/apache/arrow/arrow-memory-netty/18.3.0/arrow-memory-netty-18.3.0.jar
+$ cp ../java/target/gridstore-arrow-5.8.0.jar gridstore-arrow.jar
+$ export CLASSPATH=$CLASSPATH:./gridstore.jar:./gridstore-arrow.jar:./arrow-memory-netty.jar
 ```
-Now we should be able to use both c and python with our GridDB Cluster.
+
+Slight editing of the sample files is also required to work with GridDB CE.
+
+And then edit the top of your sample files: 
+
+```python
+import jpype
+                                                                    # Added this arrow-memory-netty jar
+jpype.startJVM(classpath=["./gridstore.jar", "./gridstore-arrow.jar", "./arrow-memory-netty.jar"])
+import griddb_python as griddb
+import sys
+
+factory = griddb.StoreFactory.get_instance()
+
+argv = sys.argv
+
+blob = bytearray([65, 66, 67, 68, 69, 70, 71, 72, 73, 74])
+update = True
+
+try:
+	#Get GridStore object
+    # Changed here to notification_member vs port & address
+	gridstore = factory.get_store(notification_member=argv[1], cluster_name=argv[2], username=argv[3], password=argv[4])
+```
+
+And then finally run: 
+
+```bash
+$ python3.12 sample1.py 127.0.0.1:10001 myCluster admin admin
+
+Person: name=name02 status=False count=2 lob=[65, 66, 67, 68, 69, 70, 71, 72, 73, 74]
+```
+
+## Installation (v0.8.5) C_Client Based
+
+The old c_client version doesn't rely on java or its jvm but instead on the c_client which you need to install. We will go over installing ther Python Client from its `.whl` file 
+
+### Prereqs
+
+To install this version of the Python client, it is required to first install the GridDB c_client. To do so, simply install the griddb-meta package from apt/yum and it will automatically be included. 
+
+You can also install the c_client manually through Github as well: [https://github.com/griddb/c_client](https://github.com/griddb/c_client)
+
+### Wheel File
+
+The easiest way to install the GridDB Python client is to download the latest `.whl` release file from GitHub and install via pip. As of right now, the latest `.whl` file (v0.8.5) requires python3.10.
+
+First, navigate to the releases page: [https://github.com/griddb/python_client/releases](https://github.com/griddb/python_client/releases), download the latest, and install. 
+
+
+```bash
+$ wget https://github.com/griddb/python_client/releases/download/0.8.5/griddb_python-0.8.5-cp310-cp310-manylinux1_x86_64.whl
+$ python3.10 -m pip install griddb_python-0.8.5-cp310-cp310-manylinux1_x86_64.whl
+
+Processing ./griddb_python-0.8.5-cp310-cp310-manylinux1_x86_64.whl
+Installing collected packages: griddb-python
+Successfully installed griddb-python-0.8.5
+```
+
+
+#### Using a Different Python Version (for the python client v0.8.5)
+
+
+If, for example, you would like to use python3.12 instead of 3.10 you can simply edit the file name to update the `cp3` file parameter. For example: 
+
+```bash
+$ python3 --version
+Python 3.12.11
+
+$ mv griddb_python-0.8.5-cp310-cp310-manylinux1_x86_64.whl griddb_python-0.8.5-cp312-cp312-manylinux1_x86_64.whl 
+
+$ python3 -m pip install griddb_python-0.8.5-cp312-cp312-manylinux1_x86_64.whl 
+Defaulting to user installation because normal site-packages is not writeable
+Processing ./griddb_python-0.8.5-cp312-cp312-manylinux1_x86_64.whl
+Installing collected packages: griddb-python
+Successfully installed griddb-python-0.8.5
+```
 
 # Simulating an IoT Dataset
 
