@@ -27,7 +27,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           ###### VUEPRESS CONFIGURATION ######
-          app_location: "docs"              # Path to your package.json
+          app_location: "./"              # Path to your package.json
           api_location: ""                  # Leave blank for no API
           output_location: ".vuepress/dist" # Where VuePress saves files
 
