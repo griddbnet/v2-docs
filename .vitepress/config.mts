@@ -33,6 +33,9 @@ export default defineConfig({
       link: '/jp/'
     }
   },
+  rewrites: {
+    '/latest/:path*': '/:path*'
+  },
   themeConfig: {
 
     nav: [
