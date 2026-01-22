@@ -1,0 +1,12 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "v2-docs": {
+      "appLocation": ".",
+      "outputLocation": ".vitepress/dist",
+      "appBuildCommand": "npm run docs:build",
+      "run": "npm run docs:dev",
+      "appDevserverUrl": "http://localhost:3000"
+    }
+  }
+}
