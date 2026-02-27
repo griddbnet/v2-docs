@@ -15,7 +15,7 @@ If you prefer a video:
 First create the Apt Repo File:
 
 ```bash
-sudo sh -c 'echo "deb https://www.griddb.net/apt griddb/5.8 multiverse" >  /etc/apt/sources.list.d/griddb.list'
+sudo sh -c 'echo "deb https://www.griddb.net/apt griddb/5.9 multiverse" >  /etc/apt/sources.list.d/griddb.list'
 ```
 
 And then import the key: 
