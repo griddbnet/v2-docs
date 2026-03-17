@@ -7,7 +7,7 @@ next:
 # What is GridDB
 
 <p class="iframe-container">
-<iframe src="https://www.youtube.com/embed/boAZXOSMY58" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/boAZXOSMY58" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </p>
 
 **GridDB is a an open source time series database optimized for IoT and Big Data.**

@@ -3,7 +3,7 @@
 ## Linux
 
 <p class="iframe-container">
-<iframe src="https://www.youtube.com/embed/WHcbhlQhc8I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/WHcbhlQhc8I" referrerpolicy="strict-origin-when-cross-origin" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
 
 Head over to the GridDB Github Releases page and download the RPM for the the latest version:
