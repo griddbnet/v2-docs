@@ -294,7 +294,7 @@ Once you restart, you will have access to a Linux command line based on Debian (
 As stated before, you now have access to the package manager known as APT, which means you can install GridDB directly through that as seen here: <https://docs.griddb.net/gettingstarted/using-apt/>
 
 ```bash
-$ sudo sh -c 'echo "deb https://www.griddb.net/apt griddb/5.7 multiverse" ;&gt;  /etc/apt/sources.list.d/griddb.list'
+$ sudo sh -c 'echo "deb https://www.griddb.net/apt griddb/5.9 multiverse" >>  /etc/apt/sources.list.d/griddb.list'
 $ wget -qO - https://www.griddb.net/apt/griddb.asc | sudo apt-key add -
 ```
 
